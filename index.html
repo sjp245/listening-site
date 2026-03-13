@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+}
+
+button{
+width:40%;
+padding:25px;
+margin:10px;
+font-size:24px;
+}
+
+.play{
+width:80%;
+background:#4CAF50;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Tap the word you hear</h2>
+
+<button onclick="guess('cat')">CAT</button>
+<button onclick="guess('dog')">DOG</button>
+<br>
+<button onclick="guess('bat')">BAT</button>
+<button onclick="guess('map')">MAP</button>
+
+<br><br>
+
+<button class="play" onclick="playSound()">🔊 Play Sound</button>
+
+<audio id="cat" src="cat.mp3"></audio>
+<audio id="dog" src="dog.mp3"></audio>
+<audio id="bat" src="bat.mp3"></audio>
+<audio id="map" src="map.mp3"></audio>
+
+<script>
+
+let sounds = ["cat","dog","bat","map"];
+let currentSound = "";
+
+function playSound(){
+currentSound = sounds[Math.floor(Math.random()*sounds.length)];
+document.getElementById(currentSound).play();
+}
+
+function guess(word){
+if(word == currentSound){
+alert("Correct!");
+}else{
+alert("Try again!");
+}
+}
+
+</script>
+
+</body>
+</html>
